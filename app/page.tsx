@@ -1,8 +1,22 @@
-import Image from "next/image";
-import { ModeToggle } from "@/components/ThemeToggle";
+import { CardComponent } from "@/components/Card";
+import prisma from "@/lib/prismaClient";
+import { Tasks } from "@prisma/client";
 
-export default function Home() {
+async function getAllTasks() {
+  const tasks = await prisma.tasks.findMany();
+  return tasks;
+}
+
+export default async function Home() {
+  const tasks = await getAllTasks();
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24"></main>
+    <main className="container grid grid-cols-4 gap-40 min-h-screen grid-flow-row items-stretch">
+      {tasks.map((task: Tasks) => (
+        <div key={task.id} className="block w-full h-full">
+          <CardComponent {...task} />
+        </div>
+      ))}
+    </main>
   );
 }

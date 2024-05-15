@@ -1,3 +1,4 @@
+import { createTask } from "@/actions/taskAction";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -22,7 +23,7 @@ export default function Page() {
         </small>
       </div>
       {/* Page Heading */}
-      <form action="" className="w-2/5 mx-auto flex flex-col gap-6">
+      <form action={createTask} className="w-2/5 mx-auto flex flex-col gap-6">
         {/* Task Title */}
         <Label htmlFor="title">
           <span className="inline-block mb-2">Title</span>
