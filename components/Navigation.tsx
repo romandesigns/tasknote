@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { ModeToggle } from "./ThemeToggle";
 import { Button } from "./ui/button";
+import { Separator } from "@/components/ui/separator";
 
 export const Navigation = () => {
   return (
@@ -15,6 +16,9 @@ export const Navigation = () => {
             <Button variant="link">
               <Link href="/">Tasks</Link>
             </Button>
+          </li>
+          <li>
+            <span className="border" />
           </li>
           <li>
             <Button variant="link">
